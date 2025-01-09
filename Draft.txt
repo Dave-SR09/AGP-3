@@ -1,0 +1,7 @@
+This file contains all operated changes and adds on the project.
+
+-= First commit: Initial commit, setting up the base. Topological structure and character configuration.
+Next thing to work on, is the Search and Generation process. But before doing the Search/Generation we 
+need to implement the social tree of a character.
+
+Probably will create a website to provide more insight about obscure definitions of "Social tree" or "Topology"
