@@ -8,3 +8,11 @@ Probably will create a website to provide more insight about obscure definitions
 
 -= Second commit: Fixed the topology generator error. As we took the index of the character instead of a general
 square target value. Which made column, row calcuation err. 
+
+-= Third commit: Evaluation. Simple static evaluation as I didn't implement yet a social tree.
+
++ Evaluation is returned into a 10log_10(x) format called Rabhi-Stokers unit. This scale is important. As topologies
+are differentiated by big margins using small units. It doesn't really matter what you use. But, Rabhi-Stokers works
+quite well. 
+
+To get the raw score as it was is simple: y = 10log_10(x) / 10^(y/10) = x.

@@ -27,19 +27,27 @@ void topology_t::set_topology(const std::string& constructor){
         }
         if(selected == nullptr)return;
 
-        selected->set_column((square+1) % sdepth);
-        selected->set_row(((square+1) / sdepth)%swidth);
+        selected->set_column((square) % sdepth);
+        selected->set_row(((square) / sdepth)%swidth);
 
         index++;
         square++; 
     }
 }
 
-int topology_t::set_width(const int& nwidth){
+void topology_t::set_width(const int& nwidth){
    swidth = nwidth;
 }
 
-int topology_t::set_depth(const int& ndepth){
+void topology_t::set_score(const float& score){
+    topology_score = score;
+}
+
+float topology_t::get_score() const{
+    return topology_score;
+}
+
+void topology_t::set_depth(const int& ndepth){
    sdepth = ndepth;
 }
 
@@ -58,4 +66,8 @@ int topology_t::get_width() const{
 
 int topology_t::get_depth() const{
     return sdepth;
+}
+
+character_t topology_t::get_character(const int& index) const {
+    return (*universal).at(index);
 }
