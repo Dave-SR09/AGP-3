@@ -14,6 +14,7 @@ class character_t {
        float social_potential;
     public: 
        explicit character_t (const std::string& character1, const float& potential);
+       explicit character_t (const std::string& character1, const std::string& mini1, const float& potential);
 
        int get_column() const;
        int get_row() const;

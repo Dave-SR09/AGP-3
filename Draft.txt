@@ -5,3 +5,6 @@ Next thing to work on, is the Search and Generation process. But before doing th
 need to implement the social tree of a character.
 
 Probably will create a website to provide more insight about obscure definitions of "Social tree" or "Topology"
+
+-= Second commit: Fixed the topology generator error. As we took the index of the character instead of a general
+square target value. Which made column, row calcuation err. 

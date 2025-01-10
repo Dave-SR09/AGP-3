@@ -7,6 +7,13 @@ character_t::character_t (const std::string& character1, const float& potential)
     hash_key = hash_fn(character1);
 }
 
+character_t::character_t (const std::string& character1, const std::string& mini1, const float& potential) 
+: character_id(character1), smininame(mini1), social_potential(potential) {
+    std::hash<std::string> hash_fn;
+    hash_key = hash_fn(character1);
+}
+
+
 int character_t::get_column() const{
     return column;
 }

@@ -10,7 +10,7 @@ topology_t::topology_t (std::vector<character_t>& ref, const int& width, const i
 void topology_t::set_topology(const std::string& constructor){
     int index = 0; 
     const int size = constructor.size();
-
+    int square = 0; 
     while(index < size){
         std::string smallname;
         while(constructor[index] != '-'){
@@ -27,10 +27,11 @@ void topology_t::set_topology(const std::string& constructor){
         }
         if(selected == nullptr)return;
 
-        selected->set_column(index % sdepth);
-        selected->set_row((index / sdepth) % swidth);
+        selected->set_column((square+1) % sdepth);
+        selected->set_row(((square+1) / sdepth)%swidth);
 
-        index++; 
+        index++;
+        square++; 
     }
 }
 
