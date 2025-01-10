@@ -17,8 +17,14 @@ int main(){
     cts.push_back(character_t("Dylan", "DYN", 0.25f));
     cts.push_back(character_t("Zack", "ZCK", 0.39f));
 
+    std::vector<social_branch> s_tree;
+    s_tree.push_back({&cts[0], &cts[1], 10.16f});
+    s_tree.push_back({&cts[0], &cts[5], 3.75f});
+
     topology_t top1 = topology_t(cts, 3, 3);
     top1.set_topology("JHN-JSN-LKE-GRG-WLK-DLL-ZCK-DYN-ART");
+
+    dynamic_evaluation(top1, s_tree);
 
     for(auto& c : cts){
         std::cout << c.get_id() << ": " << c.get_row() << " | " << c.get_column() << " |\n";

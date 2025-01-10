@@ -19,3 +19,7 @@ are differentiated by big margins using small units. It doesn't really matter wh
 quite well. 
 
 To get the raw score as it was is simple: y = 10log_10(x) / 10^(y/10) = x.
+
+-= Four commit: Dynamic evaluation. Note that dynamic evaluation isn't reciprocal ! Meaning, it won't reflect the fitness directly
+but the calculated potential. Thus, to obtain the real evaluation by blending dynamic and static. Substract static evaluation by dynamic
+evaluation and you get the real score.
