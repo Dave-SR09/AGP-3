@@ -11,16 +11,21 @@ int main(){
     cts.push_back(character_t("Arthur", "ART", 0.35f));
     cts.push_back(character_t("Jason", "JSN", 0.27f));
     cts.push_back(character_t("Luke", "LKE", 0.53f));
+    cts.push_back(character_t("Georges", "GRG", 0.53f));
+    cts.push_back(character_t("Wilock", "WLK", 0.23f));
+    cts.push_back(character_t("Dell", "DLL", 0.79f));
+    cts.push_back(character_t("Dylan", "DYN", 0.25f));
+    cts.push_back(character_t("Zack", "ZCK", 0.39f));
 
-    topology_t top1(cts, 2, 2);
+    topology_t top1 = topology_t(cts, 3, 3);
+    top1.set_topology("JHN-JSN-LKE-GRG-WLK-DLL-ZCK-DYN-ART");
 
-    top1.set_topology("JHN-JSN-ART-LKE-");
-    static_evaluation(top1);
-    
     for(auto& c : cts){
         std::cout << c.get_id() << ": " << c.get_row() << " | " << c.get_column() << " |\n";
     }
     
+    std::cout << "Topology configuration: " << top1.get_construction() << ".\n";
+    std::cout << "Topology key: " << std::hex << top1.get_key() << ".\n";
     std::cout << "Topology score: " << top1.get_score() << " Rbs.\n"; 
 
     return 0;

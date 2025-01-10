@@ -4,16 +4,21 @@
 #include <string>
 
 topology_t::topology_t (std::vector<character_t>& ref, const int& width, const int& depth)
-   : universal(&ref), swidth(width), sdepth(depth) {}
+   : universal(&ref), swidth(width), sdepth(depth) {
+    topology_score = 0;
+}
 
 
 void topology_t::set_topology(const std::string& constructor){
     int index = 0; 
     const int size = constructor.size();
     int square = 0; 
+
+    topology_construction = constructor;
+
     while(index < size){
         std::string smallname;
-        while(constructor[index] != '-'){
+        while(constructor[index] != '-' && index < size){
             smallname.push_back(constructor[index]);
             index++;
         }

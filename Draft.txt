@@ -1,5 +1,8 @@
 This file contains all operated changes and adds on the project.
 
+Topology means a classroom. Name "Topology" is a fancy mathematical term for shapes and inrelationships.
+The name was chosen to represent a general case, not a specific.
+
 -= First commit: Initial commit, setting up the base. Topological structure and character configuration.
 Next thing to work on, is the Search and Generation process. But before doing the Search/Generation we 
 need to implement the social tree of a character.

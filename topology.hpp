@@ -19,6 +19,7 @@ class topology_t {
       float topology_score;
     public:
       explicit topology_t (std::vector<character_t>& ref, const int& width, const int& depth);
+      // Constructs the topology based on the provided constructor in the format '{small_name1}-{small_name2}...-{small_name n}-'
       void set_topology(const std::string& constructor); // Set the topology to the provided construction blueprint.
       void set_width(const int& nwidth);
       void set_depth(const int& ndepth); 
