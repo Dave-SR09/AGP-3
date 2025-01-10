@@ -12,10 +12,10 @@ int main(){
 
     topology_t top1(cts, 2, 2);
 
-    top1.set_topology("JHN-ART-JSN-LKE-");
+    top1.set_topology("JHN-JSN-ART-LKE-");
     
     for(auto& c : cts){
-        std::cout << c.get_row() << " | " << c.get_column() << " |\n";
+        std::cout << c.get_id() << ": " << c.get_row() << " | " << c.get_column() << " |\n";
     }
 
     return 0;

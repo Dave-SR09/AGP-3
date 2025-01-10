@@ -20,7 +20,7 @@ class character_t {
        int get_row() const;
        float get_potential() const;
        std::string mininame() const;
-
+       std::string get_id()const;
        size_t get_key()const;
 
        void set_column(const int& column);

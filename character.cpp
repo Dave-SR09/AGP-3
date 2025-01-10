@@ -13,6 +13,9 @@ character_t::character_t (const std::string& character1, const std::string& mini
     hash_key = hash_fn(character1);
 }
 
+std::string character_t::get_id()const{
+    return character_id;
+}
 
 int character_t::get_column() const{
     return column;
