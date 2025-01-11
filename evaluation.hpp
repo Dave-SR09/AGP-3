@@ -25,6 +25,7 @@ struct social_branch {
 float static_evaluation(topology_t& top);
 
 /// @brief Involves simply social tree evaluation excludes the overall static evaluation.
-float dynamic_evaluation(topology_t& top, const std::vector<social_branch>& social_tree);
+/// @brief Generally, it doesn't involve the topology itself, as the tree is independant from the topology.
+float dynamic_evaluation(const std::vector<social_branch>& social_tree);
 
 #endif

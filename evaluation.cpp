@@ -23,11 +23,10 @@ float static_evaluation(topology_t& top){
     }
     
     // Score is evaluated in Rabhis-Stokers (RbStk) a special value made to evaluate configuration.
-    top.set_score(log10(score) * 10);
     return log10(score)*10;
 }
 
-float dynamic_evaluation(topology_t& top, const std::vector<social_branch>& social_tree){
+float dynamic_evaluation(const std::vector<social_branch>& social_tree){
     float score = 0.0;
     for(auto& branch : social_tree){
         character_t *alpha = branch.alpha, *beta = branch.beta; 
@@ -37,6 +36,6 @@ float dynamic_evaluation(topology_t& top, const std::vector<social_branch>& soci
 
         score += dist / branch.mutual_potential; 
     }
-    top.set_score(log10(score)*10);
+
     return log10(score)*10;
 }

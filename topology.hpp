@@ -4,6 +4,7 @@
 #include "character.hpp"
 #include <vector>
 #include <functional>
+#include "search.hpp"
 #include <string>
 
 /// @brief The base of AGP3 (The topology in the name)
@@ -17,12 +18,15 @@ class topology_t {
       // Configuratory topology where width represents rows, and depth, columns.
       int swidth; int sdepth; // Width represents row, whilst depth represents columns.
       float topology_score;
+
     public:
       explicit topology_t (std::vector<character_t>& ref, const int& width, const int& depth);
       // Constructs the topology based on the provided constructor in the format '{small_name1}-{small_name2}...-{small_name n}-'
       void set_topology(const std::string& constructor); // Set the topology to the provided construction blueprint.
+      void update_constructor(); // If a position is already entered, but the constructor doesn't follow.
       void set_width(const int& nwidth);
       void set_depth(const int& ndepth); 
+      void update_hash();
 
       void set_score(const float& score); // Sets the fitness value of the topology.
       float get_score() const; 
@@ -30,6 +34,7 @@ class topology_t {
       std::string get_construction() const;
       size_t get_key() const;
       int get_width() const;
+      int availaible_characters() const;
       int get_depth() const;
       character_t get_character(const int& index) const;
 };

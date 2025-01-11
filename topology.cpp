@@ -1,6 +1,7 @@
 #include "topology.hpp"
 #include <vector>
 #include <functional>
+#include <algorithm>
 #include <string>
 
 topology_t::topology_t (std::vector<character_t>& ref, const int& width, const int& depth)
@@ -38,6 +39,39 @@ void topology_t::set_topology(const std::string& constructor){
         index++;
         square++; 
     }
+    
+    update_hash();
+}
+
+void topology_t::update_constructor(){
+    std::vector<character_t> sorted = *universal;
+    // Sorting the characters based on their placement on the board.
+    std::sort(sorted.begin(), sorted.end(), [=](character_t& a, character_t& b) { 
+        int sqr1 = a.get_column() + a.get_row() * sdepth;
+        int sqr2 = b.get_column() + b.get_row() * sdepth;
+        return sqr1 > sqr2;
+    });
+
+    // Set the topology constructor to null.
+    topology_construction = "";
+    
+    for(auto& character : sorted){
+        topology_construction += character.mininame();
+        topology_construction += '-';
+    }
+    // This is to remove the last '-'.
+    topology_construction.pop_back();
+    // And finally, update the hash.
+    update_hash();
+}
+
+int topology_t::availaible_characters() const{
+    return (*universal).size();
+}
+
+void topology_t::update_hash(){
+    std::hash<std::string> hash_fn;
+    topology_key = hash_fn(topology_construction);
 }
 
 void topology_t::set_width(const int& nwidth){
@@ -61,8 +95,7 @@ std::string topology_t::get_construction() const{
 }
 
 size_t topology_t::get_key() const{
-    std::hash<std::string> hash_fn;
-    return hash_fn(topology_construction);
+    return topology_key;
 }
 
 int topology_t::get_width() const{
