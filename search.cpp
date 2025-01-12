@@ -2,6 +2,7 @@
 #include "topology.hpp"
 #include "evaluation.hpp"
 #include "character.hpp"
+
 #include <functional>
 #include <string>
 #include <time.h>

@@ -18,7 +18,6 @@ int main(){
     cts.push_back(character_t("Dylan", "DYN", 0.25f));
     cts.push_back(character_t("Zack", "ZCK", 0.39f));
     topology_t top1(cts, 3, 3);
-    shuffle_topology(top1, cts);
 
     for(auto& c : cts){
         std::cout << c.get_id() << ": " << c.get_row() << " | " << c.get_column() << " |\n";
