@@ -1,6 +1,7 @@
 #include "evaluation.hpp"
 #include "character.hpp"
 #include "topology.hpp"
+#include <iostream>
 #include <cmath>
 
 float static_evaluation(topology_t& top){
@@ -14,7 +15,7 @@ float static_evaluation(topology_t& top){
             float dist = 
                     powf(alpha.get_column() - beta.get_column(), 2)
                 +   powf(alpha.get_row() - beta.get_row(), 2);
-
+            
             float communication_potential = 
                (alpha.get_potential() * beta.get_potential())/dist; 
 
@@ -33,6 +34,12 @@ float dynamic_evaluation(const std::vector<social_branch>& social_tree){
         float dist = 
               powf(alpha->get_column() - beta->get_column(), 2)
             + powf(alpha->get_row() - beta->get_row(), 2);
+
+        try {
+            if(dist == 0) throw std::runtime_error("Division by zero either by selecting the same character.\n");
+        }catch (const std::exception& e){
+            std::cout << e.what();
+        };
 
         score += dist / branch.mutual_potential; 
     }

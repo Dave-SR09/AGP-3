@@ -6,7 +6,7 @@
 #include <vector>
 #include <cmath>
 
-int main(){
+int main(int argc, char** argv){
     std::vector<character_t> cts;
     cts.push_back(character_t("John", "JHN", 1.15f));
     cts.push_back(character_t("Arthur", "ART", 0.35f));

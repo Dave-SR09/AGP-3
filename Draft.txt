@@ -33,3 +33,18 @@ For now, focus on the base that is AGP-2.
 
 -= Seventh commit: Searching function that generates random positions. Might be planning
 to make a multi-threaded software.
+
+File formatting to extract correctly characters.
+
+A character is defined in-between curled brackets '{}'.
+  x - The first argument is the character real name.
+  x - The second argument is the minimal name.
+  x - The third argument is the social potential.
+
+A social branch is defined in-between brackets '[]'
+  x - The first argument is the index of the first character.
+  x - The second argument is the index of the second character. (a != b)
+  x - The third argument is the mutual potential in between both characters.
+
+-= Eigth commit: Added interface managements file that manage input and output between the outer scope and the software.
+Both extracting from the characters definition and branch definitions.
