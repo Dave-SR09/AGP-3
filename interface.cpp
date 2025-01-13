@@ -1,9 +1,15 @@
 #include "interface.hpp"
 #include "character.hpp"
-#include "evaluation.hpp"
 
 #include <string>
 #include <vector>
+#include <fstream>
+
+std::string buffer_out(std::ifstream& infile){
+    std::string buffout; 
+    while(!infile.eof())buffout.push_back(infile.get());
+    return buffout;
+}
 
 /// @brief Extracts all the characters from the source string. (Avoiding any brackets notation)
 /// Extract character from the source string. exc1 for extract 1.
@@ -17,17 +23,24 @@ std::vector<character_t> exc1(const std::string& src){
         if(src[k] == '{'){
             k++;
             // Identifier 1 ; Small name 1 ; Social potential.
-            std::string id1, sm1, sp; 
+            std::string id1, t_sm1, sp; 
             while(src[k] != ','){
                 id1.push_back(src[k]);
                 k++;
             }
             k++;
             while(src[k] != ','){
-                sm1.push_back(src[k]);
+                t_sm1.push_back(src[k]);
                 k++;
             }
             k++;
+
+            std::string sm1;
+            for(auto& ch : t_sm1){
+                if(ch == ' ')continue;
+                sm1.push_back(ch);
+            }
+
             while(src[k] != '}'){
                 sp.push_back(src[k]);
                 k++;
@@ -69,7 +82,7 @@ std::vector<social_branch> exc2(const std::string& src, std::vector<character_t>
                 k++;
             }
             // Pushes out the social branch into the social tree.
-            social_tree.push_back({&characters[std::stoi(alpha)], &characters[std::stoi(beta)], std::stof(mutpt)});
+            social_tree.push_back({&characters[std::stoi(alpha)],&characters[std::stoi(beta)],std::stof(mutpt)});
         }
         k++;
     }

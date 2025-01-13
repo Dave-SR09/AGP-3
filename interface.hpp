@@ -3,9 +3,13 @@
 
 #include <string>
 #include <vector>
+#include <fstream>
 
 #include "character.hpp"
 #include "evaluation.hpp"
+
+/// @brief Basically extracting the binary from the file into a real string.
+std::string buffer_out(std::ifstream& infile);
 
 /// @brief Extracts all the characters from the source string. (Avoiding any brackets notation)
 /// Extract character from the source string. exc1 for extract 1.
