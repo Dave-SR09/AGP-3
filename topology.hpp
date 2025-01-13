@@ -4,7 +4,6 @@
 #include "character.hpp"
 #include <vector>
 #include <functional>
-#include "search.hpp"
 #include <string>
 
 /// @brief The base of AGP3 (The topology in the name)

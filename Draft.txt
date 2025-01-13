@@ -30,3 +30,6 @@ For now, focus on the base that is AGP-2.
 -= Fifth commit: Topology position generation. Update function for hash and constructor for the topology ofc.
 
 -= Sixth commit: Adding a README.md and a license to dock the project on github.
+
+-= Seventh commit: Searching function that generates random positions. Might be planning
+to make a multi-threaded software.

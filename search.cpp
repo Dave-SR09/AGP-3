@@ -30,10 +30,12 @@ void shuffle_topology(topology_t& top, std::vector<character_t>& characters){
         int selected_row = rand() % top_width;
         
         // If the selected column & row are already occupied, we must go another round !
+        int k = 0;
         while(check_occupied({selected_column, selected_row})){
-            srand(time(0));
+            srand(time(0)+k);
             selected_column = rand() % top_depth;
             selected_row = rand()%top_width;
+            k++;
         }
 
         (*c).set_column(selected_column);
