@@ -46,3 +46,13 @@ void shuffle_topology(topology_t& top, std::vector<character_t>& characters){
 
     top.update_constructor();
 }
+
+// Genetic algorithm search algorithm.
+topology_t genetic_topology(std::vector<character_t>& primitives, topology_t& primitive_topology, int rounds){
+    /*
+        Note: the algorithm will adopt binary reproducation as in unisexual reproduction.
+        Therefore, topologies won't crossover but compete against eachother.
+        Each topology will multiply into its children and will compete against the others,
+        where the fittest are selected to progress to the next round with added mutation.    
+    */
+}

@@ -48,3 +48,6 @@ A social branch is defined in-between brackets '[]'
 
 -= Eigth commit: Added interface managements file that manage input and output between the outer scope and the software.
 Both extracting from the characters definition and branch definitions.
+
+-= Ninth commit: Since it is very late in the night, and I booted my computer lately. I decided to atleast define
+the function of the genetic topology searcher.

@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <iostream>
 
 std::string buffer_out(std::ifstream& infile){
     std::string buffout; 
@@ -12,8 +13,8 @@ std::string buffer_out(std::ifstream& infile){
 }
 
 /// @brief Extracts all the characters from the source string. (Avoiding any brackets notation)
-/// Extract character from the source string. exc1 for extract 1.
-std::vector<character_t> exc1(const std::string& src){
+/// Extract character from the source string. ex_chars for extract 1.
+std::vector<character_t> ex_chars(const std::string& src){
     // Kept a repository to handle pulling out.
     std::vector<character_t> pulled_out;
     int k = 0; 
@@ -56,7 +57,7 @@ std::vector<character_t> exc1(const std::string& src){
 
 /// @brief Extracts all the branches from the same file or other file.
 /// Extract second from the source string pulling out the social tree.
-std::vector<social_branch> exc2(const std::string& src, std::vector<character_t>& characters){
+std::vector<social_branch> ex_branches(const std::string& src, std::vector<character_t>& characters){
     // Keep track of the social tree, the social tree is submitted on to change.
     std::vector<social_branch> social_tree;
     // Keep track of the index.
@@ -81,6 +82,8 @@ std::vector<social_branch> exc2(const std::string& src, std::vector<character_t>
                 mutpt.push_back(src[k]);
                 k++;
             }
+
+            std::cout << alpha << " | " << beta << " | " << mutpt << " |\n";
             // Pushes out the social branch into the social tree.
             social_tree.push_back({&characters[std::stoi(alpha)],&characters[std::stoi(beta)],std::stof(mutpt)});
         }
