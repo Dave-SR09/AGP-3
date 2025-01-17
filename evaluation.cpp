@@ -27,9 +27,10 @@ float static_evaluation(topology_t& top){
     return log10(score)*10;
 }
 
-float dynamic_evaluation(const std::vector<social_branch>& social_tree){
+float dynamic_evaluation(topology_t& top){
+    auto social_tree = top.get_tree();
     float score = 0.0;
-    for(auto& branch : social_tree){
+    for(auto& branch : *social_tree){
         character_t *alpha = branch.alpha, *beta = branch.beta; 
         float dist = 
               powf(alpha->get_column() - beta->get_column(), 2)
@@ -45,4 +46,17 @@ float dynamic_evaluation(const std::vector<social_branch>& social_tree){
     }
 
     return log10(score)*10;
+}
+
+// log (a/b) = log(a) - log(b)
+
+float total_evaluation(topology_t& top){
+    // Get both values from both evaluation techniques.
+    float static_ev = static_evaluation(top);
+    float dynamic_ev = dynamic_evaluation(top);
+    // Return the difference of logs. We can determine the total evaluation raw as e^10 * (static_eval/dynamic_eval)
+    // Static evaluation is discrimanatory, meaning we are evaluating position efficiency.
+    // while Dynamic evaluation evaluates the potential of all the characters in the social tree.
+    // Thus, dynamic and static are opposites in context. That's why we return the difference.
+    return static_ev - dynamic_ev;
 }

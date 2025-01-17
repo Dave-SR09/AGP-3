@@ -51,3 +51,7 @@ Both extracting from the characters definition and branch definitions.
 
 -= Ninth commit: Since it is very late in the night, and I booted my computer lately. I decided to atleast define
 the function of the genetic topology searcher.
+
+-= Tenth commit: 
+   x = Changed the directivity of the social tree from the topology directly. This is to allow the user
+   to select their evaluation technique.

@@ -1,4 +1,5 @@
 #include "topology.hpp"
+#include "evaluation.hpp"
 #include <vector>
 #include <functional>
 #include <algorithm>
@@ -108,4 +109,12 @@ int topology_t::get_depth() const{
 
 character_t topology_t::get_character(const int& index) const {
     return (*universal).at(index);
+}
+
+std::vector<social_branch>* topology_t::get_tree(){
+    return social_tree;
+}
+
+void topology_t::set_tree(std::vector<social_branch>& c_tree){
+    social_tree = &c_tree;
 }

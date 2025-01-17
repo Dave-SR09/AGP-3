@@ -11,6 +11,7 @@
 class topology_t {
     private:
       std::vector<character_t>* universal; // Reference to the universal set of students.
+      std::vector<social_branch>* social_tree; // Reference to the universal set of students.
       // Topology differentiation parameters.
       std::string topology_construction;
       size_t topology_key;
@@ -25,6 +26,7 @@ class topology_t {
       void update_constructor(); // If a position is already entered, but the constructor doesn't follow.
       void set_width(const int& nwidth);
       void set_depth(const int& ndepth); 
+      void set_tree(std::vector<social_branch>& c_tree);
       void update_hash();
 
       void set_score(const float& score); // Sets the fitness value of the topology.
@@ -34,6 +36,7 @@ class topology_t {
       size_t get_key() const;
       int get_width() const;
       int availaible_characters() const;
+      std::vector<social_branch>* get_tree();
       int get_depth() const;
       character_t get_character(const int& index) const;
 };
