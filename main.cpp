@@ -10,11 +10,14 @@
 int main(int argc, char** argv){
     std::ifstream in("tst1.txt", std::ios_base::in);
     auto al = ex_chars(buffer_out(in));
-    auto tree = ex_branches(buffer_out(in), al);
+    topology_t t1(al, 4, 2);
 
-    for(auto& b : tree){
-        std::cout << b.alpha->get_id() << " === " << b.beta->get_id() << " <= " << b.mutual_potential << "\n";
+    for(auto chara : al){
+        std::cout << chara.get_column() << " | " << chara.get_row() << " |\n";
     }
+
+    std::cout << "Topology construction: " << t1.get_construction() << " |\nScore topology:" << t1.get_score() << "\n";
+
     in.close();
     return 0;
 }

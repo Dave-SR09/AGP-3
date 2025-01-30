@@ -1,6 +1,7 @@
 #ifndef AGP3_TOPOLOGY_INCLUDED
 #define AGP3_TOPOLOGY_INCLUDED
 
+#include "evaluation.hpp"
 #include "character.hpp"
 #include <vector>
 #include <functional>
